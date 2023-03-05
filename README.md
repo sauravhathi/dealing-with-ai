@@ -2,7 +2,8 @@
 Dealing with AI is a website that offers AI-powered writing assistance and language processing tools to help you with a variety of tasks. Our services include sentence correction, paraphrasing, report writing, math problem solving, programming tasks, and more. We can also help optimize your website with SEO tools such as keywords, robots.txt, sitemap.xml, descriptions, titles, slogans, and taglines to improve your search engine ranking. Let Dealing with AI help you achieve your writing and website optimization goals.
 
 ## Demo
-#### https://dealing-with-ai.vercel.app/
+### Frontend👉 https://dealing-with-ai.vercel.app/
+### Backend👉 https://github.com/sauravhathi/dealingWithAI
 
 ![image](https://user-images.githubusercontent.com/61316762/222989171-5230e69e-1cd4-4fdd-b856-96b9a8d2f68d.png)
 
