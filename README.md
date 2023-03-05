@@ -1,38 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Dealing with AI
+Dealing with AI is a website that offers AI-powered writing assistance and language processing tools to help you with a variety of tasks. Our services include sentence correction, paraphrasing, report writing, math problem solving, programming tasks, and more. We can also help optimize your website with SEO tools such as keywords, robots.txt, sitemap.xml, descriptions, titles, slogans, and taglines to improve your search engine ranking. Let Dealing with AI help you achieve your writing and website optimization goals.
 
-## Getting Started
+## Technologies Used
+Next.js
+React
+Tailwind CSS
 
-First, run the development server:
+## Available Scripts
+In the project directory, you can run:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+`npm run dev`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Runs the app in the development mode.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Open `http://localhost:3000 `to view it in the browser.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+The page will reload if you make edits.
+You will also see any lint errors in the console.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+`npm run build`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Builds the app for production to the `.next` folder.
+It correctly bundles Next.js in production mode and optimizes the build for the best performance.
 
-## Learn More
+The build is minified and the filenames include the hashes.
+Your app is ready to be deployed!
 
-To learn more about Next.js, take a look at the following resources:
+## Available Services
+Dealing with AI offers the following services:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Sentence Correction
+Corrects the grammatical and syntactical errors in a given sentence.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Paraphrasing
+Rewrites a given sentence to express the same meaning but in different words.
 
-## Deploy on Vercel
+### Report Writing
+Generates a report on a given topic.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Math Problem Solving
+Solves a given math problem.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Programming Tasks
+Provides assistance with programming tasks such as code review, optimization, and refactoring.
+
+### Writing Assistance
+Provides writing assistance for letters, essays, and resumes.
+
+### Website Optimization
+Optimizes your website with SEO tools such as keywords, robots.txt, sitemap.xml, descriptions, titles, slogans, and taglines to improve your search engine ranking.
+
+## How to Use
+To use Dealing with AI, follow these steps:
+
+1. Select the service you want to use from the drop-down menu.
+2. Select the appropriate options for the service you have chosen.
+3. Enter your query or text in the input field.
+4. Click the "Submit" button.
+5. The results will be displayed on the screen.
