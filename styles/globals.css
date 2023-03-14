@@ -8,11 +8,11 @@ html {
 
 @layer utilities {
     .selection {
-        @apply flex flex-wrap items-center justify-start w-full px-20 gap-1;
+        @apply flex flex-wrap items-center justify-start px-10 md:px-20 gap-1;
     }
 
     select {
-        @apply border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent w-96 h-10 mt-2 text-2xl;
+        @apply border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent h-10 mt-2 text-2xl;
     }
 
     .t-2 {

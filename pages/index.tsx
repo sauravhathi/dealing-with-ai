@@ -151,134 +151,132 @@ export default function Home() {
             <h1 className="text-5xl font-bold">{siteName}</h1>
             <p className="t-2 mt-5">{siteName} is a free tool that helps you to solve your problems with AI.</p>
           </div>
-          <div className="flex flex-col items-center justify-center w-full mt-10">
-            <form onSubmit={handleSubmit}>
-              <div className="flex flex-col items-center justify-center w-full gap-1">
+          <div className="flex flex-col items-center justify-center mt-10">
+            <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center gap-1">
+              <div className="selection">
+                <label className="t-2 "
+                >What do you want to do?</label>
+                <select
+                  onChange={(e) => {
+                    setOption(e.target.value)
+                    setResult('')
+                  }
+                  }
+                >
+                  <option value="">Select an option</option>
+                  {options.map((option, index) => (
+                    <option key={index} value={option} aria-label={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              {option === 'programming' && (
                 <div className="selection">
-                  <label className="t-2 "
-                  >What do you want to do?</label>
+                  <label className="t-2 ">What language?</label>
                   <select
                     onChange={(e) => {
-                      setOption(e.target.value)
+                      setLanguage(e.target.value)
                       setResult('')
                     }
                     }
                   >
-                    <option value="">Select an option</option>
-                    {options.map((option, index) => (
-                      <option key={index} value={option} aria-label={option}>
-                        {option}
+                    <option value="">Select a language</option>
+                    {languages.map((language, index) => (
+                      <option key={index} value={language} aria-label={language}>
+                        {language}
                       </option>
                     ))}
                   </select>
                 </div>
-                {option === 'programming' && (
-                  <div className="selection">
-                    <label className="t-2 ">What language?</label>
-                    <select
-                      onChange={(e) => {
-                        setLanguage(e.target.value)
-                        setResult('')
-                      }
-                      }
-                    >
-                      <option value="">Select a language</option>
-                      {languages.map((language, index) => (
-                        <option key={index} value={language} aria-label={language}>
-                          {language}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
-                {option === 'programming' && (
-                  <div className="selection">
-                    <label className="t-2 ">What task?</label>
-                    <select
-                      onChange={(e) => {
-                        setTask(e.target.value)
-                        setResult('')
-                      }
-                      }
-                    >
-                      <option value="">Select a task</option>
-                      {programmingTasks.map((task, index) => (
-                        <option key={index} value={task} aria-label={task}>
-                          {task}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
-                {option === 'writing' && (
-                  <div className="selection">
-                    <label className="t-2 ">What task?</label>
-                    <select
-                      className="w-96 h-10 mt-2 t-2 "
-                      onChange={(e) => {
-                        setTask(e.target.value)
-                        setResult('')
-                      }
-                      }
-                    >
-                      <option value="">Select a task</option>
-                      {writingTasks.map((task, index) => (
-                        <option key={index} value={task} aria-label={task}>
-                          {task}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
-                {option === 'website' && (
-                  <div className="selection">
-                    <label className="t-2 ">What task?</label>
-                    <select
-                      className="w-96 h-10 mt-2 t-2 "
-                      onChange={(e) => {
-                        setTask(e.target.value)
-                        setResult('')
-                      }
-                      }
-                    >
-                      <option value="">Select a task</option>
-                      {websiteTasks.map((task, index) => (
-                        <option key={index} value={task} aria-label={task}>
-                          {task}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
-                <div className="flex flex-col justify-center w-full px-20">
-                  <label className="t-2 ">Type your problem</label>
-                  <textarea
+              )}
+              {option === 'programming' && (
+                <div className="selection">
+                  <label className="t-2 ">What task?</label>
+                  <select
                     onChange={(e) => {
-                      setValue(e.target.value)
-                      setCharCount(e.target.value.length)
+                      setTask(e.target.value)
+                      setResult('')
                     }
                     }
-                    rows={10}
-                    aria-label="Type your problem"
-                  />
-                  <p className="t-2 mt-2 ">
-                    {<span className={charCount > maxCharCount ? "text-red-500" : ""}>{charCount}</span>} / {maxCharCount}
-                  </p>
-                  <button
-                    className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2 ${charCount > maxCharCount || charCount === 0 || loading || error ? 'opacity-50 cursor-not-allowed' : ''}`}
-                    type="submit"
-                    disabled={!!(charCount > maxCharCount || charCount === 0 || loading || error)}
-                    aria-label="Generate"
                   >
-                    Generate
-                  </button>
+                    <option value="">Select a task</option>
+                    {programmingTasks.map((task, index) => (
+                      <option key={index} value={task} aria-label={task}>
+                        {task}
+                      </option>
+                    ))}
+                  </select>
                 </div>
+              )}
+              {option === 'writing' && (
+                <div className="selection">
+                  <label className="t-2 ">What task?</label>
+                  <select
+                    className="w-96 h-10 mt-2 t-2 "
+                    onChange={(e) => {
+                      setTask(e.target.value)
+                      setResult('')
+                    }
+                    }
+                  >
+                    <option value="">Select a task</option>
+                    {writingTasks.map((task, index) => (
+                      <option key={index} value={task} aria-label={task}>
+                        {task}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+              {option === 'website' && (
+                <div className="selection">
+                  <label className="t-2 ">What task?</label>
+                  <select
+                    className="w-96 h-10 mt-2 t-2 "
+                    onChange={(e) => {
+                      setTask(e.target.value)
+                      setResult('')
+                    }
+                    }
+                  >
+                    <option value="">Select a task</option>
+                    {websiteTasks.map((task, index) => (
+                      <option key={index} value={task} aria-label={task}>
+                        {task}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+              <div className="flex flex-col justify-center w-full mx-10 md:px-20">
+                <label className="t-2 ">Type your problem</label>
+                <textarea
+                  onChange={(e) => {
+                    setValue(e.target.value)
+                    setCharCount(e.target.value.length)
+                  }
+                  }
+                  rows={10}
+                  aria-label="Type your problem"
+                />
+                <p className="t-2 mt-2 ">
+                  {<span className={charCount > maxCharCount ? "text-red-500" : ""}>{charCount}</span>} / {maxCharCount}
+                </p>
+                <button
+                  className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2 ${charCount > maxCharCount || charCount === 0 || loading || error ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  type="submit"
+                  disabled={!!(charCount > maxCharCount || charCount === 0 || loading || error)}
+                  aria-label="Generate"
+                >
+                  Generate
+                </button>
               </div>
             </form>
           </div>
           {
             result &&
-            <div className="flex flex-col justify-center w-full px-20" ref={resultRef}>
+            <div className="flex flex-col justify-center w-full mx-10 md:px-20" ref={resultRef}>
               <label className="t-2 inline-flex items-center gap-1"><FaCheck className="text-green-500" /> Result</label>
               <textarea
                 readOnly
@@ -324,7 +322,7 @@ export default function Home() {
               className="rounded-full"
             />
             <span className=" text-gray-500">
-            Saurav Hathi
+              Saurav Hathi
             </span>
             <span className=" text-gray-500">
               {new Date().getFullYear()}
