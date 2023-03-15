@@ -12,7 +12,7 @@ export default function Home() {
   const [charCount, setCharCount] = useState(0)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-  const maxCharCount = 400;
+  const maxCharCount = 450;
   const siteName = 'Dealing with AI'
 
   // options list
