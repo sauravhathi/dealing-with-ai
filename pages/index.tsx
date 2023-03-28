@@ -2,17 +2,19 @@ import Head from 'next/head'
 import React, { useState, useEffect, useRef } from 'react'
 import { FaCheck, FaExclamationTriangle, FaGithub, FaSpinner } from 'react-icons/fa'
 import Image from 'next/image'
+import axios from 'axios'
 
 export default function Home() {
   const [value, setValue] = useState('')
   const [option, setOption] = useState('')
   const [language, setLanguage] = useState('')
   const [task, setTask] = useState('')
+  const [number, setNumber] = useState('1')
   const [result, setResult] = useState('')
   const [charCount, setCharCount] = useState(0)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-  const maxCharCount = 400;
+  const maxCharCount = 1000;
   const siteName = 'Dealing with AI'
 
   // options list
@@ -20,6 +22,9 @@ export default function Home() {
     'sentence correction',
     'paraphraser',
     'report making',
+    'table of content',
+    'compare review papers',
+    'apa citation',
     'math',
     'programming',
     'writing',
@@ -96,31 +101,33 @@ export default function Home() {
 
   // handle submit form data to backend api and get result from backend api and set result to state and error to state and loading to state
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setError('')
-    setResult('')
-    setLoading(true)
-    const res = await fetch('v1/api/dealingWithAI', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        value,
-        option,
-        language,
-        task,
-      }),
-    })
-    const data = await res.json()
-    if (data.error) {
-      setResult('')
-      setError(data.error)
-      setLoading(false)
-    } else {
-      setError('')
-      setResult(data.data)
-      setLoading(false)
+    e.preventDefault();
+    setError('');
+    setResult('');
+    setLoading(true);
+    try {
+      const { data } = await axios.post(
+        'v1/api/dealingWithAI',
+        {
+          value,
+          option,
+          language,
+          task,
+          number,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      setError('');
+      setResult(data.data);
+      setLoading(false);
+    } catch (error: any) {
+      setResult('');
+      setError(error.response.data.error);
+      setLoading(false);
     }
   }
 
@@ -204,6 +211,25 @@ export default function Home() {
                     {programmingTasks.map((task, index) => (
                       <option key={index} value={task} aria-label={task}>
                         {task}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+              {option === 'compare review papers' && (
+                <div className="selection">
+                  <label className="t-2 ">How many comparison?</label>
+                  <select
+                    onChange={(e) => {
+                      setNumber(e.target.value)
+                      setResult('')
+                    }
+                    }
+                  >
+                    <option value="">Select a number</option>
+                    {Array.from({ length: 100 }, (_, i) => (
+                      <option key={i + 1} value={i + 1}>
+                        {i + 1}
                       </option>
                     ))}
                   </select>
