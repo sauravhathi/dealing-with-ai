@@ -51,8 +51,10 @@ export default function Home() {
       );
       setError('');
       setResult(data.data);
+    
     } catch (error: any) {
       setError(error.message);
+    
     } finally {
       setLoading(false);
     }
